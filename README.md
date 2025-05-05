@@ -283,7 +283,7 @@ The SDK interfaces with a Solana program that includes the following account typ
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/reflink-sdk.git
+git clone https://github.com/reflink-labs/reflink-sdk.git
 cd reflink-sdk
 
 # Install dependencies
