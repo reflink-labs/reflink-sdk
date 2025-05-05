@@ -1,0 +1,410 @@
+{
+  "address": "4PpiC9e179ufENLcgmK5NQJKHZ48NepLguqCJPsnBT9A",
+  "metadata": {
+    "name": "reflink",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "register_affiliate",
+      "discriminator": [
+        87,
+        121,
+        99,
+        184,
+        126,
+        63,
+        103,
+        217
+      ],
+      "accounts": [
+        {
+          "name": "affiliate",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "register_merchant",
+      "discriminator": [
+        238,
+        245,
+        77,
+        132,
+        161,
+        88,
+        216,
+        248
+      ],
+      "accounts": [
+        {
+          "name": "merchant",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "commission_bps",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "register_referral_sol",
+      "discriminator": [
+        42,
+        231,
+        92,
+        85,
+        242,
+        38,
+        111,
+        91
+      ],
+      "accounts": [
+        {
+          "name": "affiliate",
+          "writable": true
+        },
+        {
+          "name": "referral",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant"
+        },
+        {
+          "name": "merchant_wallet",
+          "docs": [
+            "The wallet that will receive the merchant's portion of the payment"
+          ],
+          "writable": true
+        },
+        {
+          "name": "affiliate_wallet",
+          "docs": [
+            "The wallet that will receive the affiliate's commission"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The wallet that is making the payment"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "register_referral_token",
+      "discriminator": [
+        50,
+        215,
+        2,
+        53,
+        56,
+        216,
+        151,
+        55
+      ],
+      "accounts": [
+        {
+          "name": "affiliate",
+          "writable": true
+        },
+        {
+          "name": "referral",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant"
+        },
+        {
+          "name": "token_mint",
+          "docs": [
+            "The token mint being used for payment"
+          ]
+        },
+        {
+          "name": "merchant_token_account",
+          "docs": [
+            "The merchant's token account that will receive payment"
+          ],
+          "writable": true
+        },
+        {
+          "name": "affiliate_token_account",
+          "docs": [
+            "The affiliate's token account that will receive commission"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer_token_account",
+          "docs": [
+            "The payer's token account"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The wallet that is making the payment"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "toggle_merchant_status",
+      "discriminator": [
+        251,
+        186,
+        166,
+        45,
+        108,
+        107,
+        186,
+        170
+      ],
+      "accounts": [
+        {
+          "name": "merchant",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_merchant_commission",
+      "discriminator": [
+        77,
+        99,
+        119,
+        206,
+        140,
+        212,
+        161,
+        195
+      ],
+      "accounts": [
+        {
+          "name": "merchant",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_commission_bps",
+          "type": "u16"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Affiliate",
+      "discriminator": [
+        136,
+        95,
+        107,
+        149,
+        36,
+        195,
+        146,
+        35
+      ]
+    },
+    {
+      "name": "Merchant",
+      "discriminator": [
+        71,
+        235,
+        30,
+        40,
+        231,
+        21,
+        32,
+        64
+      ]
+    },
+    {
+      "name": "Referral",
+      "discriminator": [
+        30,
+        235,
+        136,
+        224,
+        106,
+        107,
+        49,
+        64
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidCommissionRate",
+      "msg": "Invalid commission rate."
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Unauthorized."
+    },
+    {
+      "code": 6002,
+      "name": "InvalidAffiliate",
+      "msg": "Invalid affiliate."
+    },
+    {
+      "code": 6003,
+      "name": "CalculationError",
+      "msg": "Calculation error."
+    },
+    {
+      "code": 6004,
+      "name": "InactiveMerchant",
+      "msg": "Merchant is not active."
+    }
+  ],
+  "types": [
+    {
+      "name": "Affiliate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_earned",
+            "type": "u64"
+          },
+          {
+            "name": "total_referrals",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Merchant",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "commission_bps",
+            "type": "u16"
+          },
+          {
+            "name": "active",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Referral",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "affiliate",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "commission",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "is_token",
+            "type": "bool"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          }
+        ]
+      }
+    }
+  ]
+}
