@@ -13,7 +13,8 @@ export class ReflinkSDK {
 
   constructor(
     connection: Connection,
-    wallet: Wallet // Wallet adapter that implements .signTransaction and .publicKey
+    wallet: Wallet, // Wallet adapter that implements .signTransaction and .publicKey
+    programId?: string // Optional program ID
   ) {
     this.connection = connection;
     this.wallet = wallet;
@@ -24,6 +25,11 @@ export class ReflinkSDK {
       wallet,
       AnchorProvider.defaultOptions()
     );
+
+    // Update the IDL address if programId is provided
+    if (programId) {
+      IDL.address = programId;
+    }
 
     // Create the program interface which will be used to invoke the program's instructions
     this.program = new Program(IDL, this.provider);
