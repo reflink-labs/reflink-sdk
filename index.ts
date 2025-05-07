@@ -1,2 +1,1 @@
-export * from "./reflink-sdk";
-export * from "./reflink-hooks";
+export * from "./src/reflink-sdk";
