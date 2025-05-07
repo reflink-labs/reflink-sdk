@@ -1,6 +1,6 @@
 {
   "name": "reflink-sdk",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "SDK for interacting with the Reflink Solana program via Anchor.",
   "main": "dist/index.js",
   "types": "index.ts",
